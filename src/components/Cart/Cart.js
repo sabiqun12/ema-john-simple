@@ -1,9 +1,11 @@
 import React from 'react';
 
+
 const Cart = (props) => {
     const cart = props.cart;
-    console.log(cart);
-    const total = cart.reduce((total, prodct) => total + prodct.price, 0);
+    //console.log(cart);
+    const total = cart.reduce((total, prodct) => total + prodct.price* prodct.quantity, 0);
+
 
     let shippingCost = 0;
     if (total > 0) {
@@ -29,6 +31,9 @@ const Cart = (props) => {
             <p>Shipping Cost:{shippingCost}</p>
             <p><small>Tax + Vat:{formatNumber(tax)}</small></p>
             <p>Total price:{formatNumber(grandTotal)}</p>
+            <br/>
+
+            
         </div>
     );
 };
